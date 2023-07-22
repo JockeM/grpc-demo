@@ -1,0 +1,11 @@
+version: '3'
+services:
+  envoy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: envoy
+    ports:
+      - "9901:9901" # admin panel
+      - "8080:8080" # communication
+    command: -c /etc/envoy/envoy.yaml
